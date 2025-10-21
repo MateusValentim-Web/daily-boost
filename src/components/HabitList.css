@@ -120,7 +120,7 @@
   background-color: #e68a00;
 }
 
-/* Responsivo */
+/* Responsivo para celulares e tablets */
 @media (max-width: 600px) {
   .add-habit {
     flex-direction: column;
@@ -139,5 +139,23 @@
 
   .habit-controls {
     gap: 0.25rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .habit-controls .count {
+    min-width: 40px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0 0.25rem;
+  }
+
+  .habit-controls .btn,
+  .habit-controls .remove {
+    flex: 1 1 auto;
+    margin-bottom: 0.25rem;
   }
 }
