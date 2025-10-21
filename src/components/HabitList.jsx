@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import './HabitList.css';
-
-
+import "./HabitList.css";
 
 export default function HabitList() {
   const [habits, setHabits] = useState(() => {
@@ -16,37 +14,38 @@ export default function HabitList() {
   });
 
   const [newHabit, setNewHabit] = useState("");
-  const [quote, setQuote] = useState("");
 
   // Persistência
   useEffect(() => {
     localStorage.setItem("habits", JSON.stringify(habits));
   }, [habits]);
 
-  // Frase motivacional diária
-  useEffect(() => {
-    fetch("https://zenquotes.io/api/today")
-      .then((res) => res.json())
-      .then((data) => setQuote(`${data[0].q} — ${data[0].a}`))
-      .catch(() => setQuote("Você é capaz de tudo o que se propõe! 💪"));
-  }, []);
-
   // Funções
-  const increment = id => setHabits(prev => prev.map(h => h.id === id ? { ...h, count: h.count + 1 } : h));
-  const decrement = id => setHabits(prev => prev.map(h => h.id === id && h.count > 0 ? { ...h, count: h.count - 1 } : h));
+  const increment = (id) =>
+    setHabits((prev) =>
+      prev.map((h) => (h.id === id ? { ...h, count: h.count + 1 } : h))
+    );
+
+  const decrement = (id) =>
+    setHabits((prev) =>
+      prev.map((h) =>
+        h.id === id && h.count > 0 ? { ...h, count: h.count - 1 } : h
+      )
+    );
+
   const addHabit = () => {
     if (newHabit.trim() === "") return;
-    setHabits(prev => [...prev, { id: Date.now(), name: newHabit, count: 0 }]);
+    setHabits((prev) => [...prev, { id: Date.now(), name: newHabit, count: 0 }]);
     setNewHabit("");
   };
-  const removeHabit = id => setHabits(prev => prev.filter(h => h.id !== id));
-  const resetAll = () => setHabits(prev => prev.map(h => ({ ...h, count: 0 })));
+
+  const removeHabit = (id) => setHabits((prev) => prev.filter((h) => h.id !== id));
+
+  const resetAll = () => setHabits((prev) => prev.map((h) => ({ ...h, count: 0 })));
 
   return (
     <div className="container">
       <h1 className="header">Daily Boost 💫</h1>
-
-      {quote && <p className="quote">"{quote}"</p>}
 
       {/* Adicionar hábito */}
       <div className="add-habit">
@@ -64,12 +63,17 @@ export default function HabitList() {
         {habits.map((habit) => (
           <div key={habit.id} className="habit-card">
             <span className="habit-name">{habit.name}</span>
-
             <div className="habit-controls">
-              <button className="btn" onClick={() => decrement(habit.id)}>−1</button>
+              <button className="btn" onClick={() => decrement(habit.id)}>
+                −1
+              </button>
               <span className="count">{habit.count}</span>
-              <button className="btn" onClick={() => increment(habit.id)}>+1</button>
-              <button className="remove" onClick={() => removeHabit(habit.id)}>✖</button>
+              <button className="btn" onClick={() => increment(habit.id)}>
+                +1
+              </button>
+              <button className="remove" onClick={() => removeHabit(habit.id)}>
+                ✖
+              </button>
             </div>
           </div>
         ))}

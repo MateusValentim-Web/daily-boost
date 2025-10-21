@@ -68,7 +68,8 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* impede que o count suma */
+  overflow-x: auto; /* scroll se necessário */
 }
 
 .habit-controls .btn {
@@ -79,6 +80,7 @@
   border-radius: 5px;
   cursor: pointer;
   font-weight: 600;
+  flex-shrink: 0;
 }
 
 .habit-controls .btn:hover {
@@ -88,6 +90,7 @@
 .habit-controls .remove {
   background-color: #dc3545;
   padding: 0.25rem 0.5rem;
+  flex-shrink: 0;
 }
 
 .habit-controls .remove:hover {
@@ -96,8 +99,10 @@
 
 .count {
   font-weight: 600;
-  min-width: 30px;
+  min-width: 40px;
   text-align: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
 }
 
 .actions {
@@ -120,7 +125,7 @@
   background-color: #e68a00;
 }
 
-/* Responsivo para celulares e tablets */
+/* Responsivo */
 @media (max-width: 600px) {
   .add-habit {
     flex-direction: column;
@@ -138,24 +143,18 @@
   }
 
   .habit-controls {
-    gap: 0.25rem;
     width: 100%;
-    display: flex;
+    gap: 0.25rem;
     justify-content: flex-start;
-    flex-wrap: wrap;
   }
 
   .habit-controls .count {
     min-width: 40px;
-    text-align: center;
-    font-weight: 600;
-    font-size: 1.1rem;
-    margin: 0 0.25rem;
+    font-size: 1.2rem;
   }
 
   .habit-controls .btn,
   .habit-controls .remove {
     flex: 1 1 auto;
-    margin-bottom: 0.25rem;
   }
 }
