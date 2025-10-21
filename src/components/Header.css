@@ -1,0 +1,32 @@
+.app-header {
+  background-color: #4b6cb7;
+  background-image: linear-gradient(315deg, #4b6cb7 0%, #182848 74%);
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.app-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.app-subtitle {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .app-title {
+    font-size: 1.8rem;
+  }
+
+  .app-subtitle {
+    font-size: 1rem;
+  }
+}

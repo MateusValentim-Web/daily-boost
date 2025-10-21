@@ -1,0 +1,143 @@
+.container {
+  background-color: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+
+.header {
+  text-align: center;
+  font-size: 2rem;
+  color: #4b6cb7;
+  margin-bottom: 1rem;
+}
+
+.add-habit {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.add-habit input {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.add-habit button {
+  padding: 0.5rem 1rem;
+  background-color: #4b6cb7;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.add-habit button:hover {
+  background-color: #3a539b;
+}
+
+.habit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.habit-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  flex-wrap: wrap;
+}
+
+.habit-name {
+  font-weight: 500;
+  color: #333;
+}
+
+.habit-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.habit-controls .btn {
+  padding: 0.25rem 0.5rem;
+  background-color: #4b6cb7;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.habit-controls .btn:hover {
+  background-color: #3a539b;
+}
+
+.habit-controls .remove {
+  background-color: #dc3545;
+  padding: 0.25rem 0.5rem;
+}
+
+.habit-controls .remove:hover {
+  background-color: #a71d2a;
+}
+
+.count {
+  font-weight: 600;
+  min-width: 30px;
+  text-align: center;
+}
+
+.actions {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.actions button {
+  padding: 0.5rem 1.2rem;
+  background-color: #ff9800;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #fff;
+  transition: background 0.3s;
+}
+
+.actions button:hover {
+  background-color: #e68a00;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .add-habit {
+    flex-direction: column;
+  }
+
+  .add-habit input,
+  .add-habit button {
+    width: 100%;
+  }
+
+  .habit-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .habit-controls {
+    gap: 0.25rem;
+  }
+}

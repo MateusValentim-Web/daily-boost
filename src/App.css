@@ -1,0 +1,21 @@
+/* Reset e box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center; /* centraliza horizontalmente */
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+.app-wrapper {
+  width: 100%;
+  max-width: 900px; /* limita largura máxima */
+  padding: 1rem;
+}
